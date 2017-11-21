@@ -5,8 +5,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="MAVIA - Register, Reservation, Questionare, Reviews form wizard">
-	<meta name="author" content="Ansonika">
+	<meta name="description" content="Qelopak">
+	<meta name="author" content="Hendri Gunawan">
 	<title>Qelopak | Account Registration</title>
 
 	<!-- Favicons-->
@@ -47,12 +47,12 @@
 	<header>
 		<div class="container-fluid">
 		    <div class="row">
-                <div class="col-xs-3">
+                <div class="col-xs-12 text-center">
                     <div id="logo_home">
-                        <h1><a href="{!! url('') !!}">MAVIA | Register, Reservation, Questionare, Reviews form wizard</a></h1>
+                        <h1><a href="{!! url('') !!}">Qelopak</a></h1>
                     </div>
                 </div>
-                <div class="col-xs-9">
+<!--                <div class="col-xs-9">
                     <div id="social">
                         <ul>
                             <li><a href="javascript:;;"><i class="icon-facebook"></i></a></li>
@@ -61,7 +61,7 @@
                             <li><a href="javascript:;;"><i class="icon-linkedin"></i></a></li>
                         </ul>
                     </div>
-                    <!-- /social -->
+                     /social 
                     <nav>
                         <ul class="cd-primary-nav">
                             <li><a href="index.html" class="animated_link">Register Version</a></li>
@@ -72,7 +72,7 @@
                             <li><a href="contacts.html" class="animated_link">Contact Us</a></li>
                         </ul>
                     </nav>
-                </div>
+                </div>-->
             </div>
 		</div>
 		<!-- container -->

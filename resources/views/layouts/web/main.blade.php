@@ -33,8 +33,6 @@
 	<!-- YOUR CUSTOM CSS -->
 	<link href="{{ asset('web/css/custom.css') }}" rel="stylesheet">
     
-	
-
 	<script src="{{ asset('web/js/modernizr.js') }}"></script>
 	<!-- Modernizr -->
 
@@ -88,9 +86,9 @@
 	</main>
 	
 	<footer id="home" class="clearfix">
-		<p>© 2017 Mavia</p>
+		<p>© 2017 Qelopak</p>
 		<ul>
-			<li><a href="http://www.atc.co.id" class="animated_link" target="_blank">ATC</a></li>
+			<li><a href="http://www.atc.co.id" class="animated_link" target="_blank">Qelopak</a></li>
 		</ul>
 	</footer>
 	<!-- end footer-->

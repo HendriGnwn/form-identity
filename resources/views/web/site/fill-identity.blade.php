@@ -75,40 +75,30 @@
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <input type="text" name="city" class="form-control required" placeholder="City">
+                                    <input type="text" name="city" class="form-control required" placeholder="Kota">
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <input type="text" name="zip_code" class="form-control required" placeholder="Zip code">
+                                    <input type="text" name="postal_code" class="form-control required" placeholder="Kode Pos">
                                 </div>
                             </div>
                         </div>
                         
                         <!-- /row -->
                     </div>
-                    <!-- /step-->
 
                     <div class="step">
-                        <h3 class="main_question"><strong>2/3</strong>Please fill with additional info</h3>
+                        <h3 class="main_question"><strong>2/3</strong>Pendidikan dan Pengalaman Bekerja</h3>
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input type="text" name="address" class="form-control required" placeholder="Address">
+                                    <input type="text" name="school_name" class="form-control required" placeholder="Gaji yang diharapkan">
                                 </div>
                             </div>
-                            <!-- /col-sm-12 -->
-                        </div>
-                        <!-- /row -->
-                        <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                 <div class="form-group">
-                                    <input type="text" name="city" class="form-control required" placeholder="City">
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group">
-                                    <input type="text" name="zip_code" class="form-control required" placeholder="Zip code">
+                                    <input type="text" name="school_name" class="form-control required" placeholder="Pendidikan">
                                 </div>
                             </div>
                         </div>
@@ -117,38 +107,77 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <div class="styled-select">
-                                        <select class="required" name="country">
-                                            <option value="" selected>Select your country</option>
-                                            <option value="Europe">Europe</option>
-                                            <option value="Asia">Asia</option>
-                                            <option value="North America">North America</option>
-                                            <option value="South America">South America</option>
+                                        <select class="required" name="education_state">
+                                            <option value="" selected>Kualifikasi</option>
+                                            <option value="SMA">SMA / SMK Sederajat</option>
+                                            <option value="Diploma">Diploma</option>
+                                            <option value="Sarjana">Sarjana</option>
+                                            <option value="Master">Master</option>
+                                            <option value="Doktoral">Doktoral</option>
+                                            <option value="Lainnya">Lainnya</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <div class="styled-select">
+                                                <select class="required" name="education_periode_start">
+                                                    <option value="" selected>Periode Pendidikan</option>
+                                                    @foreach (range(date('Y'), 1990) as $year)
+                                                    <option value="{{ $year }}">{{ $year }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <div class="styled-select">
+                                                <select class="required" name="education_periode_end">
+                                                    <option value="" selected>Sampai Tahun</option>
+                                                    @foreach (range(date('Y'), 1990) as $year)
+                                                    <option value="{{ $year }}">{{ $year }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <small><input id="graduate_yet" name="graduate_yet" type="checkbox" class="icheck required" value="1"> <label for="graduate_yet">Saya masih belum lulus</label></small>
+                            </div>
                         </div>
                         <!-- /row -->
                     </div>
-                    <!-- /step-->
 
                     <div class="submit step">
-                        <h3 class="main_question"><strong>3/3</strong>Send an optional message</h3>
+                        <h3 class="main_question"><strong>3/3</strong>Isi Data Lainnya</h3>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label><small>Upload Photo</small></label>
+                                    <input type="file" name="photo" class="form-control required">
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-group">
-                            <textarea name="additional_message" class="form-control" style="height:150px;" placeholder="Hello world....write your messagere here!"></textarea>
+                            <textarea name="message" class="form-control" style="height:150px;" placeholder="Pesan"></textarea>
                         </div>
                         <div class="form-group terms">
                             <input name="terms" type="checkbox" class="icheck required" value="yes">
-                            <label>Please accept <a href="index.html#" data-toggle="modal" data-target="#terms-txt">terms and conditions</a> ?</label>
+                            <label>Saya setuju <a href="#" data-toggle="modal" data-target="#terms-txt">syarat dan ketentuan</a> ?</label>
                         </div>
                     </div>
                     <!-- /step-->
                 </div>
                 <!-- /middle-wizard -->
                 <div id="bottom-wizard">
-                    <button type="button" name="backward" class="backward">Backward </button>
-                    <button type="button" name="forward" class="forward">Forward</button>
-                    <button type="submit" name="process" class="submit">Submit</button>
+                    <button type="button" name="backward" class="backward">Sebelumnya </button>
+                    <button type="button" name="forward" class="forward">Selanjutnya</button>
+                    <button type="submit" name="process" class="submit">Kirim</button>
                 </div>
                 <!-- /bottom-wizard -->
             </form>

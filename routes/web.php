@@ -14,3 +14,4 @@
 Route::get('/', function () {
     return view('web.site.fill-identity');
 });
+Route::post('/process', 'SiteController@process');

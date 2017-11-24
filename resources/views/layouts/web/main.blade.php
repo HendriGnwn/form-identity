@@ -106,6 +106,7 @@
 	<!-- SCRIPTS -->
 	<!-- Jquery-->
 	<script src="{{ asset('web/js/jquery-2.2.4.min.js') }}"></script>
+	<script src="{{ asset('js/jquery.mask.min.js') }}"></script>
 	<!-- Common script -->
 	<script src="{{ asset('web/js/common_scripts_min.js') }}"></script>
 	<!-- Menu script -->

@@ -40,7 +40,7 @@
     <div class="row">
         <div class="col-sm-6">
             <div class="form-group">
-                <label><input type="checkbox" value="Ya" name="certificate_yet">&nbsp;&nbsp;Saya belum mempunyai sertifikat</label>
+                <label><input type="checkbox" value="1" name="certificate_yet">&nbsp;&nbsp;Saya belum mempunyai sertifikat</label>
             </div>
         </div>
     </div>

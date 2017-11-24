@@ -80,6 +80,18 @@
 	<!-- End Header -->
 
 	<main>
+        @if(session()->has('status'))
+        <div class="container">
+            <br>
+            <div class="row">
+                    <div class="col-sm-12">
+                        <div class="alert alert-{{ session('status') }}">
+                            {{ session('message') }}
+                        </div>
+                    </div>
+                </div>
+        </div>
+        @endif
 		<div id="form_container">
 			@yield('content')
 		</div><!-- /Form_container -->

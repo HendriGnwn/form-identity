@@ -18,6 +18,7 @@
         <div class="col-sm-6">
             <div class="form-group">
                 <input type="email" name="email" class="form-control required" placeholder="Emal Anda">
+                <div class="email-error-custom"></div>
             </div>
         </div>
         <div class="col-sm-6">
@@ -62,13 +63,13 @@
     <div class="row">
         <div class="col-sm-6">
             <div class="form-group">
-                <input type="text" name="country" class="form-control required" placeholder="Kota">
+                <input type="text" name="country" class="form-control required" placeholder="Negara">
             </div>
         </div>
         <div class="col-sm-6">
             <div class="form-group radio_input">
-                <label><input type="radio" value="Belum Menikah" checked name="marital_status[]" class="icheck">Belum Menikah</label>
-                <label><input type="radio" value="Menikah" name="marital_status[]" class="icheck">Menikah</label>
+                <label><input type="radio" value="Belum Menikah" checked name="marital_status" class="icheck">Belum Menikah</label>
+                <label><input type="radio" value="Menikah" name="marital_status" class="icheck">Menikah</label>
             </div>
         </div>
     </div>
@@ -92,7 +93,14 @@
         </div>
         <div class="col-sm-6">
             <div class="form-group">
-                <label><input type="checkbox" value="Ya" name="profesional_recomendation" class="icheck">Rekomendasi Profesional</label>
+                <label><input type="checkbox" value="1" name="profesional_recomendation" class="icheck">Rekomendasi Profesional</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <input type="text" name="job_type" class="form-control required" placeholder="Bidang Pekerjaan yang diinginkan">
             </div>
         </div>
     </div>
@@ -100,3 +108,33 @@
 
     <!-- /row -->
 </div>
+
+@push("script")
+<script>
+$("input[name='email']").change(function() {
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': "{{ csrf_token() }}"
+        },
+        type: 'POST',
+        url: "{{url('check-email')}}",
+        data: {
+            '_token':"{{ csrf_token() }}",
+            'email':$(this).val()
+        },
+        success: function(result) {
+            var data = JSON.parse(result);
+            if (data.status == false) {
+                $('.email-error-custom').html('<span for="email" class="error">Email sudah digunakan</span>');
+                $(this).addClass('error');
+                $('.forward').attr('disabled', true);
+            } else {
+                $('.email-error-custom').html('');
+                $(this).removeClass('error');
+                $('.forward').removeAttr('disabled');
+            }
+        }
+    })
+})
+</script>
+@endpush

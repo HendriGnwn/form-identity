@@ -1,6 +1,7 @@
 @extends('layouts.web.main')
 
 @section('content')
+
 <div class="row">
     <div class="col-md-4">
         <div id="left_form">
@@ -17,7 +18,9 @@
                 <div id="progressbar"></div>
             </div>
             <!-- /top-wizard -->
-            <form name="example-1" id="wrapped" method="POST">
+            <form name="example-1" id="wrapped" method="POST" action="{{url("process")}}" enctype="multipart/form-data">
+                 {{ csrf_field() }}
+                <input id="website" name="website" type="text" value="">
                 <!-- Leave for security protection, read docs for details -->
                 <div id="middle-wizard">
 
@@ -29,24 +32,8 @@
                     
                     @include('web.site._step-4')
                     
-                    <div class="submit step">
-                        <h3 class="main_question"><strong>3/3</strong>Isi Data Lainnya</h3>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label><small>Upload Photo</small></label>
-                                    <input type="file" name="photo" class="form-control required">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <textarea name="message" class="form-control" style="height:150px;" placeholder="Pesan"></textarea>
-                        </div>
-                        <div class="form-group terms">
-                            <input name="terms" type="checkbox" class="icheck required" value="yes">
-                            <label>Saya setuju <a href="#" data-toggle="modal" data-target="#terms-txt">syarat dan ketentuan</a> ?</label>
-                        </div>
-                    </div>
+                    @include('web.site._final-step')
+                    
                     <!-- /step-->
                 </div>
                 <!-- /middle-wizard -->
@@ -110,8 +97,8 @@
 
 @push("script")
 <script>
-    $('form#wrapped').attr('action', '{{ url("process") }}');
     $('form#wrapped').find("input[name='expected_salary']").mask('#.##0', {reverse: true});
+    $('form#wrapped').find("input[name='company_salary']").mask('#.##0', {reverse: true});
     
     $("#wizard_container").wizard({
         stepsWrapper: "#wrapped",

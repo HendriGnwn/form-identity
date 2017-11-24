@@ -15,3 +15,4 @@ Route::get('/', function () {
     return view('web.site.fill-identity');
 });
 Route::post('/process', 'SiteController@process');
+Route::post('/check-email', 'SiteController@checkEmailIsExist');

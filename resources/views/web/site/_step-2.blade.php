@@ -1,5 +1,5 @@
 <div class="step">
-    <h3 class="main_question"><strong>2/5</strong>Pendidikan dan Pengalaman Bekerja</h3>
+    <h3 class="main_question"><strong>2/5</strong>Pendidikan</h3>
     <div class="row">
         <div class="col-sm-12">
             <div class="form-group">
@@ -12,7 +12,7 @@
         <div class="col-sm-6">
             <div class="form-group">
                 <div class="styled-select">
-                    <select class="required" name="education_state">
+                    <select class="required" name="school_qualification">
                         <option value="" selected>Kualifikasi</option>
                         <option value="SMA">SMA / SMK Sederajat</option>
                         <option value="Diploma">Diploma</option>

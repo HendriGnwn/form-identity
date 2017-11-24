@@ -66,7 +66,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <div class="styled-select">
-                            <select class="required" name="company_end_date_month">
+                            <select class="" name="company_end_date_month">
                                 <option value="" selected>Sampai Bulan</option>
                                 <option value="01">Januari</option>
                                 <option value="02">Februari</option>
@@ -87,7 +87,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <div class="styled-select">
-                            <select class="required" name="company_end_date_year">
+                            <select class="" name="company_end_date_year">
                                 <option value="" selected>Sampai Tahun</option>
                                 @foreach (range(date('Y'), 1990) as $year)
                                 <option value="{{ $year }}">{{ $year }}</option>
@@ -98,7 +98,7 @@
                     </div>
                 </div>
             </div>
-            <small><input id="company_stil_work" name="company_stil_work" type="checkbox" class="icheck required" value="1"> <label for="company_stil_work">Saya masih bekerja disini</label></small>
+            <small><input id="company_stil_work" name="company_stil_work" type="checkbox" class="icheck" value="1"> <label for="company_stil_work">Saya masih bekerja disini</label></small>
         </div>
     </div>
     <div class="row">
@@ -106,10 +106,37 @@
             <div class="form-group">
                 <textarea name="company_responsible" class="form-control required" style="height:100px" placeholder="Tanggung Jawab"></textarea>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label><input type="checkbox" value="Ya" name="fresh_graduated">&nbsp;&nbsp;Saya fresh graduated</label>
+            </div>
             <br/>
             <br/>
         </div>
-        
     </div>
     <!-- /row -->
 </div>
+@push('script')
+<script>
+$('input[name="fresh_graduated"]').click(function() {
+    if ($(this).is(':checked') == true) {
+        $('input[name="company_name"]').removeClass("required");
+        $('input[name="company_position"]').removeClass("required");
+        $('input[name="company_salary"]').removeClass("required");
+        $('select[name="company_start_date_month"]').removeClass("required");
+        $('select[name="company_start_date_year"]').removeClass("required");
+        $('textarea[name="company_responsible"]').removeClass("required");
+    } else {
+        $('input[name="company_name"]').addClass("required");
+        $('input[name="company_position"]').addClass("required");
+        $('input[name="company_salary"]').addClass("required");
+        $('select[name="company_start_date_month"]').addClass("required");
+        $('select[name="company_start_date_year"]').addClass("required");
+        $('textarea[name="company_responsible"]').addClass("required");
+    }
+})
+</script>
+@endpush

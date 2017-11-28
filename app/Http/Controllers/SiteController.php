@@ -13,8 +13,8 @@ class SiteController extends Controller
     {
         $model = new Identity();
         $requestData = $request->all();
-        $requestData['company_start_date'] = $request->company_start_date_year . '-' . $request->company_start_date_month . '-01';
-        $requestData['company_end_date'] = $request->company_end_date_year . '-' . $request->company_end_date_month . '-28';
+        $requestData['company_start_date'] = !empty($request->company_start_date_year) && !empty($request->company_start_date_month) ? \Carbon\Carbon::parse($request->company_start_date_year . '-' . $request->company_start_date_month)->toDateString() : null;
+        $requestData['company_end_date'] = !empty($request->company_end_date_year) && !empty($request->company_end_date_month) ? \Carbon\Carbon::parse($request->company_end_date_year . '-' . $request->company_end_date_month)->toDateString() : null;
         $requestData['expected_salary'] = str_replace('.', '', $request->expected_salary);
         $requestData['company_salary'] = str_replace('.', '', $request->company_salary);
         $model->fill($requestData);
@@ -36,7 +36,7 @@ class SiteController extends Controller
         $model->save();
         
         Session::flash('status', 'success');
-        Session::flash('message', 'Sukses');
+        Session::flash('message', 'Terimakasih atas waktunya untuk mengisi identitas diri Anda');
 
         return redirect(redirect()->getUrlGenerator()->previous());
     }

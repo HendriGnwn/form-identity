@@ -52,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            <small><input id="is_graduated_yet" name="is_graduated_yet" type="checkbox" class="icheck required" value="1"> <label for="is_graduated_yet">Saya belum lulus</label></small>
+            <small><input id="is_graduated_yet" name="is_graduated_yet" type="checkbox" class="icheck" value="1"> <label for="is_graduated_yet">Saya belum lulus</label></small>
         </div>
     </div>
     <!-- /row -->

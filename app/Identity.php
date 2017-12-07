@@ -63,12 +63,12 @@ class Identity extends BaseModel
         $path = public_path(self::DESTINATION_PATH);
 		$this->setPath($path);
 		if (!is_dir($this->getPath())) {
-			\File::makeDirectory($this->getPath(), '0755');
+			\File::makeDirectory($this->getPath(), '0777');
 		}
 	}
     
-    public function generateFilename($ext)
+    public function generateFilename($prefix, $ext)
 	{
-		return str_slug($this->first_name . ' ' . $this->first_name . ' ' . rand(10000,99999)) . '.' . $ext;
+		return str_slug($prefix . ' ' . $this->first_name . ' ' . $this->last_name . ' ' . rand(10000,99999)) . '.' . $ext;
 	}
 }

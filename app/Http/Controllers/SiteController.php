@@ -20,17 +20,20 @@ class SiteController extends Controller
         $model->fill($requestData);
         if (isset($request->photo)) {
 			$files = $request->file('photo');
-			$filename = $model->generateFilename($files->getClientOriginalExtension());
+			$filename = $model->generateFilename('photo', $files->getClientOriginalExtension());
+            $files->move($model->getPath(), $filename);
 			$model->photo = $filename;
 		}
         if (isset($request->cv)) {
 			$files = $request->file('cv');
-			$filename = $model->generateFilename($files->getClientOriginalExtension());
+			$filename = $model->generateFilename('cv', $files->getClientOriginalExtension());
+            $files->move($model->getPath(), $filename);
 			$model->cv = $filename;
 		}
         if (isset($request->certificate_document)) {
 			$files = $request->file('certificate_document');
-			$filename = $model->generateFilename($files->getClientOriginalExtension());
+			$filename = $model->generateFilename('certificate', $files->getClientOriginalExtension());
+            $files->move($model->getPath(), $filename);
 			$model->certificate_document = $filename;
 		}
         $model->save();

@@ -32,7 +32,7 @@
     <div class="row">
         <div class="col-sm-6">
             <div class="form-group">
-                <input type="text" name="date_of_birth" class="form-control datepicker required" placeholder="Tanggal Lahir">
+                <input type="text" name="date_of_birth" class="form-control datepicker required" placeholder="Tanggal Lahir (Tahun-Bulan-Tanggal)">
             </div>
         </div>
         <div class="col-sm-6">
